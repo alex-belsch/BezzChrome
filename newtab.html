@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Tab</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <main class="center-stack" aria-label="Start">
+    <h1 class="brand">Belsch</h1>
+
+    <div class="links-row" aria-label="Schnellzugriffe">
+      <a id="l0" href="#" target="_blank" rel="noopener">Link 1</a>
+      <a id="l1" href="#" target="_blank" rel="noopener">Link 2</a>
+      <a id="l2" href="#" target="_blank" rel="noopener">Link 3</a>
+      <a id="l3" href="#" target="_blank" rel="noopener">Link 4</a>
+      <a id="l4" href="#" target="_blank" rel="noopener">Link 5</a>
+      <button id="editLinks" class="edit-links" title="Edit links">✎</button>
+    </div>
+
+    <form id="searchForm" class="search" action="https://www.google.com/search" method="GET" target="_self" autocomplete="on" aria-label="Suche">
+      <input id="searchInput" name="q" type="text" placeholder="Search…" aria-label="Search" />
+      <button id="searchBtn" type="submit" title="Google search">⌕</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <a href="https://belsch.space" target="_blank" rel="noopener">belsch.space</a>
+  </footer>
+
+  <div id="linkEditor" class="link-editor hidden" role="dialog" aria-modal="true" aria-label="Links bearbeiten">
+    <div class="editor-card">
+      <div class="editor-head">
+        <strong>Edit links</strong>
+        <button id="closeEditor" class="icon" title="Schließen">×</button>
+      </div>
+      <div class="editor-body" id="editorBody"></div>
+      <div class="editor-actions">
+        <button id="saveLinks">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

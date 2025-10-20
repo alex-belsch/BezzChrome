@@ -1,0 +1,160 @@
+:root {
+  --bg: #060911;
+  --dot: #e5e7eb;
+  --line: #94a3b8;
+  --panel: rgba(15, 23, 42, 0.92);
+  --border: rgba(148, 163, 184, 0.35);
+  --text: #e5e7eb;
+  --muted: #9aa3b2;
+  --accent: #bcd0ff;
+}
+* { box-sizing: border-box }
+html, body { height: 100% }
+html { overflow: hidden }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 70% 20%, #0a1020 0%, var(--bg) 60%);
+  color: var(--text);
+  font: 15px/1.5 system-ui, Segoe UI, Roboto, Inter, Arial;
+}
+
+#bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 0;
+}
+
+.center-stack {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 12px;
+  width: min(900px, 92vw);
+  justify-items: center;
+  padding: 0 12px;
+}
+.center-stack > * { pointer-events: auto }
+
+.brand {
+  margin: 0;
+  font-size: clamp(30px, 6.4vw, 60px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #e8edf7;
+  text-shadow: 0 2px 20px rgba(188,208,255,.12);
+  opacity: .95;
+}
+
+.links-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 6px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.12);
+  backdrop-filter: blur(6px);
+}
+.links-row a {
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 600;
+  display: inline-block;
+}
+.links-row a:hover { background: rgba(255,255,255,.1) }
+.edit-links {
+  padding: 10px 12px;
+  border: 1px dashed var(--border);
+  background: rgba(255,255,255,.03);
+  border-radius: 12px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.search {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  width: min(720px, 92vw);
+  background: rgba(0,0,0,.14);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px;
+}
+.search input[type="text"] {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  padding: 10px 12px;
+  font-size: 16px;
+  outline: none;
+}
+.search input[type="text"]::placeholder { color: var(--muted) }
+.search input[type="text"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(188,208,255,.25) }
+.search button[type="submit"] {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.search button[type="submit"]:hover { background: rgba(255,255,255,.1) }
+
+.footer {
+  position: fixed;
+  left: 0; right: 0; bottom: 14px;
+  display: grid; place-items: center;
+  z-index: 1;
+}
+.footer a {
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: rgba(255,255,255,.04);
+}
+.footer a:hover { background: rgba(255,255,255,.08); color: var(--text) }
+
+.link-editor {
+  position: fixed; inset: 0;
+  display: grid; place-items: center;
+  background: rgba(0,0,0,.45);
+  z-index: 3;
+}
+.link-editor.hidden { display: none }
+.editor-card {
+  width: min(560px, calc(100vw - 32px));
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+.editor-head { display: grid; grid-template-columns: 1fr auto; align-items: center; margin-bottom: 10px }
+.editor-body .row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px }
+button, input[type="text"], input[type="url"] {
+  appearance: none; border: 1px solid var(--border); border-radius: 10px;
+  background: rgba(255,255,255,.04); color: var(--text); padding: 8px 10px; cursor: pointer;
+}
+input[type="text"], input[type="url"] { cursor: text }
+button:hover { background: rgba(255,255,255,.06) }
+.icon { width: 32px; height: 32px; display: grid; place-items: center; padding: 0 }
+.editor-actions { display: flex; justify-content: flex-end }

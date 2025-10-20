@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Belsch new tab",
+  "version": "1.0",
+  "description": "An Chrome extension of mine that i made .",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
